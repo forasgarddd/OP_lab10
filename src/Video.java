@@ -5,16 +5,16 @@ public class Video {
     public String videoName;
     private String URL;
     private int viewCount;
-    private int videoLikeCount;
-    private int videoDislikeCount;
+    private int videoLikes;
+    private int videoDislikes;
     protected static ArrayList<Video> videoList = new ArrayList<>();
 
-    public Video(String videoName, String URL, int viewCount, int videoLikeCount, int videoDislikeCount) {
+    public Video(String videoName, String URL, int viewCount, int videoLikes, int videoDislikes) {
         this.videoName = videoName;
         this.URL = URL;
         this.viewCount = viewCount;
-        this.videoLikeCount = videoLikeCount;
-        this.videoDislikeCount = videoDislikeCount;
+        this.videoLikes = videoLikes;
+        this.videoDislikes = videoDislikes;
         videoList.add(this);
     }
 
@@ -42,20 +42,20 @@ public class Video {
         this.viewCount = viewCount;
     }
 
-    public int getVideoLikeCount() {
-        return videoLikeCount;
+    public int getVideoLikes() {
+        return videoLikes;
     }
 
-    public void setVideoLikeCount(int videoLikeCount) {
-        this.videoLikeCount = videoLikeCount;
+    public void setVideoLikes(int videoLikes) {
+        this.videoLikes = videoLikes;
     }
 
-    public int getVideoDislikeCount() {
-        return videoDislikeCount;
+    public int getVideoDislikes() {
+        return videoDislikes;
     }
 
-    public void setVideoDislikeCount(int videoDislikeCount) {
-        this.videoDislikeCount = videoDislikeCount;
+    public void setVideoDislikes(int videoDislikes) {
+        this.videoDislikes = videoDislikes;
     }
 
     @Override
@@ -67,8 +67,8 @@ public class Video {
         result.append(" Name: " + videoName + NL);
         result.append(" URl: " + URL + NL);
         result.append(" Views: " + viewCount + NL);
-        result.append(" Likes: " + videoLikeCount + NL);
-        result.append(" Dislikes: " + videoDislikeCount + NL);
+        result.append(" Likes: " + videoLikes + NL);
+        result.append(" Dislikes: " + videoDislikes + NL);
         result.append("}" + NL);
 
         return result.toString();
