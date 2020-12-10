@@ -1,16 +1,37 @@
 public class App {
 
     public static void main(String[] args) {
-        VideoBLog Arthas = new VideoBLog("Arthas");
-        System.out.println("Blog name: " + Arthas.getBlogName());
-        System.out.println("Videos list: \n" + Video.videoList);
-        System.out.println(Arthas.getCommentListVideo(Arthas.video1));
-        System.out.println(Arthas.getCommentListVideo(Arthas.video3));
-        System.out.println("Overall views count: " + Arthas.countOverallView());
-        System.out.println(Arthas.findMostLikedComment(Arthas.video1, Arthas.getCommentListVideo1()));
-        System.out.println(Arthas.findMostLikedComment(Arthas.video3, Arthas.getCommentListVideo3()));
-        System.out.println("Most disliked videos list: \n" + Arthas.findMostDislikedVideo());
+        Videoblog Arthas = new Videoblog("Arthas");
+
+        Video video1 = new Video("Rickrolling", "www.youtube.com/watch?v=dQw4w9WgXcQ", 100000, 10000, 420);
+        Video video2 = new Video("Песня про ЗОЖ", "www.youtube.com/watch?v=LsNrJg-8_2I", 22000, 1000, 100);
+        Video video3 = new Video("Последнее видео на ФП(", "www.youtube.com/watch?v=jhzzQd5hdCM", 200, 69, 500);
+
+        Comment comment1 = new Comment("Rickrolled", 100, 2);
+        Comment comment2 = new Comment("На турничок!", 15, 0);
+        Comment comment3 = new Comment("Ви молодець!", 10000, 3);
+        Comment comment4 = new Comment("Физик топ за свои деньги", 700, 1);
+
+        Arthas.addVideo(video1);
+        Arthas.addVideo(video2);
+        Arthas.addVideo(video3);
+        Arthas.addComment(comment1);
+        Arthas.addComment(comment2);
+        Arthas.addComment(comment3);
+        Arthas.addComment(comment4);
+
+        video1.addComment(comment1);
+        video1.addComment(comment2);
+        video2.addComment(comment3);
+        video3.addComment(comment4);
+
+        System.out.println("Blog name: " + Arthas.getName());
+        System.out.println(Arthas.getVideos());
+        System.out.println(video1.getComments());
+        System.out.println(Arthas.countOverallView());
+        System.out.println(Arthas.findPopularComment());
+        System.out.println("Videos with biggest dislikes count:\n" + Arthas.findMostDislikedVideo());
+
 
     }
-
 }

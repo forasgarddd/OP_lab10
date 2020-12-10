@@ -2,60 +2,43 @@ import java.util.ArrayList;
 
 public class Video {
 
-    public String videoName;
+    private String name;
     private String URL;
     private int viewCount;
-    private int videoLikes;
-    private int videoDislikes;
-    protected static ArrayList<Video> videoList = new ArrayList<>();
+    private int likes;
+    private int dislikes;
+    private ArrayList<Comment> comments = new ArrayList<>();
 
-    public Video(String videoName, String URL, int viewCount, int videoLikes, int videoDislikes) {
-        this.videoName = videoName;
+    public Video(String name, String URL, int viewCount, int likes, int dislikes) {
+        this.name = name;
         this.URL = URL;
         this.viewCount = viewCount;
-        this.videoLikes = videoLikes;
-        this.videoDislikes = videoDislikes;
-        videoList.add(this);
+        this.likes = likes;
+        this.dislikes = dislikes;
     }
 
-    public String getVideoName() {
-        return videoName;
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
     }
 
-    public void setVideoName(String name) {
-        this.videoName = videoName;
+    public ArrayList<Comment> getComments() {
+        return this.comments;
     }
 
-    public String getURL() {
-        return URL;
-    }
-
-    public void setURL(String URL) {
-        this.URL = URL;
+    public String getName() {
+        return this.name;
     }
 
     public int getViewCount() {
         return viewCount;
     }
 
-    public void setViewCount(int viewCount) {
-        this.viewCount = viewCount;
+    public int getLikes() {
+        return likes;
     }
 
-    public int getVideoLikes() {
-        return videoLikes;
-    }
-
-    public void setVideoLikes(int videoLikes) {
-        this.videoLikes = videoLikes;
-    }
-
-    public int getVideoDislikes() {
-        return videoDislikes;
-    }
-
-    public void setVideoDislikes(int videoDislikes) {
-        this.videoDislikes = videoDislikes;
+    public int getDislikes() {
+        return dislikes;
     }
 
     @Override
@@ -64,15 +47,13 @@ public class Video {
         String NL = System.getProperty("line.separator");
 
         result.append(this.getClass().getName() + " {" + NL);
-        result.append(" Name: " + videoName + NL);
+        result.append(" Name: " + name + NL);
         result.append(" URl: " + URL + NL);
         result.append(" Views: " + viewCount + NL);
-        result.append(" Likes: " + videoLikes + NL);
-        result.append(" Dislikes: " + videoDislikes + NL);
+        result.append(" Likes: " + likes + NL);
+        result.append(" Dislikes: " + dislikes + NL);
         result.append("}" + NL);
 
         return result.toString();
     }
-
 }
-
