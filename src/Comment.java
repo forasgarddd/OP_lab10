@@ -20,6 +20,10 @@ public class Comment {
         return likes;
     }
 
+    public int getDislikes() {
+        return dislikes;
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

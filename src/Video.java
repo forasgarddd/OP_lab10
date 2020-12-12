@@ -29,16 +29,20 @@ public class Video {
         return this.name;
     }
 
+    public String getURL() {
+        return this.URL;
+    }
+
     public int getViewCount() {
-        return viewCount;
+        return this.viewCount;
     }
 
     public int getLikes() {
-        return likes;
+        return this.likes;
     }
 
     public int getDislikes() {
-        return dislikes;
+        return this.dislikes;
     }
 
     @Override

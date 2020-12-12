@@ -47,12 +47,14 @@ public class Videoblog {
         for (Video video : getVideos()) {
             for (Comment comment : video.getComments()) {
                 if (comment.getLikes() > video.getLikes()) {
-                    answer = comment + " has more likes than video \"" + video.getName() + "\n";
+                    answer = comment + " has more likes than video \"" + video.getName() + "\"" + "\n";
                     popularComments.add(answer);
-                } else if (popularComments.isEmpty()) {
-                    answer = "There is no comment with more likes than video \"" + video.getName() + "\"";
                 }
             }
+        }
+        if (popularComments.isEmpty()) {
+            answer = "There is no comment with more likes than it's video";
+            popularComments.add(answer);
         }
         return popularComments;
     }
